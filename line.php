@@ -1,7 +1,7 @@
 <?php
 
 $API_URL = 'https://api.line.me/v2/bot/message/reply';
-$ACCESS_TOKEN = 'B2xkdhS0mSEDeBp+p7OoT+VkvW14qbLMpB0ooQnujxO8ZINPom9U0qy4vYg7V7QIEgM/RJ59psZQ1FR269BJxFkHigRUyzNsx9j3r1QZKm6dBQtT9Wyxk9m/4WIgsGO94liUJ3JMnotCOSMxoogEowdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
+$ACCESS_TOKEN = '9llSIJ+Pr/0YmqxVwS69TMMHgs8QP7eM8Nf/NAxtMZne6KF5xUN3gKNvouIUlMFusI7Npwgte801GZ6tIC1ca6OFRHT54L8WcalsEs6xgaCpbj9szk7mEbpUQvN2m5UlsfRmk55J5XTfgncOvnSqDgdB04t89/1O/w1cDnyilFU='; // Access Token ค่าที่เราสร้างขึ้น
 $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
 
 $request = file_get_contents('php://input');   // Get request content
@@ -22,16 +22,15 @@ if ( sizeof($request_array['events']) > 0 )
    {
 		$text = $event['message']['text'];
 		
-		if(($text == "อุณหภูมิตอนนี้")||($text == "อุณหภูมิวันนี้")||($text == "อุณหภูมิ")){
-			$temp = 27;
-			$reply_message = 'ขณะนี้อุณหภูมิที่ '.$temp.'°C องศาเซลเซียส';
+		if(($text == "อยากทราบยอด COVID-19 ครับ")||($text == "COVID-19")||($text == "COVID 19")){
+			$reply_message = '"รายงานสถานการณ์ ยอดผู้ติดเชื้อไวรัสโคโรนา 2019 (COVID-19) ในประเทศไทย" ผู้ป่วยสะสม	จำนวน 59,160,161 ราย ผู้เสียชีวิต	จำนวน 160161 ราย รักษาหาย	จำนวน 161 ราย ผู้รายงานข้อมูล: นายจิรานุวัจน์ ใจเย็น';
 		}
-		else if(($text== "ตอนนี้อยู่ที่ไหน")||($text== "ตอนนี้อยู่ไหน")||($text== "อยู่ที่ไหน")||($text== "อยู่ไหน")){
-			$reply_message = 'ขณะนี้อยู่ที่ห้องเรียน IF-5T05 ...!!!';
+		else if(($text== "ข้อมูลส่วนตัว")||($text== "ผู้พัฒนาระบบ")||($text== "ข้อมูลส่วนตัวของผู้พัฒนาระบบ")){
+			$reply_message = 'ชื่อนายจิรานุวัจน์ ใจเย็น อายุ 22ปี น้ำหนัก 105kg. สูง 181cm. ขนาดรองเท้าเบอร์ 13 ใช้หน่วย US';
 		}
 		else
 		{
-			$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว';
+			$reply_message = 'ระบบได้รับข้อความ ('.$text.') ของคุณแล้ว แต่ไม่มีคำตอบนี้ในระบบ โปรดถามคำถามว่า "อยากทราบยอด COVID-19 ครับ" หรือ "ข้อมูลส่วนตัวของผู้พัฒนาระบบ" ';
     		}
    
    }
